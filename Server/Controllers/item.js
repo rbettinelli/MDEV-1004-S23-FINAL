@@ -130,6 +130,7 @@ function UpdateItem(req, res, next) {
         let id = req.params.id;
         let architects = SanitizeArray(req.body.architects);
         let itemToUpdate = new item_1.default({
+            _id: id,
             name: req.body.name,
             type: req.body.type,
             dateBuilt: req.body.dateBuilt,

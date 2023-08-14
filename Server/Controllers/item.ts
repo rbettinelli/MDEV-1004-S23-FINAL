@@ -164,6 +164,7 @@ export function UpdateItem(
 
     // Populates movie with data from API.
     let itemToUpdate = new MyItem({
+      _id: id,
       name: req.body.name,
       type: req.body.type,
       dateBuilt: req.body.dateBuilt,
