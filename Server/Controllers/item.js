@@ -19,7 +19,6 @@ function SanitizeArray(unsanitizedValue) {
 }
 function DisplayList(req, res, next) {
     item_1.default.find({})
-        .sort({ name: 1 })
         .then(function (data) {
         res
             .status(200)
@@ -35,7 +34,6 @@ function DisplayList(req, res, next) {
 exports.DisplayList = DisplayList;
 function DisplayListItems(req, res, next) {
     item_1.default.find({}, { name: 1, title: 1 })
-        .sort({ name: 1 })
         .then(function (data) {
         res.status(200).json({ success: true, msg: "List Found.", data: data });
     })

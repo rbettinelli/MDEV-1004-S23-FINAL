@@ -33,7 +33,6 @@ export function DisplayList(
   next: NextFunction
 ): void {
   MyItem.find({})
-    .sort({ name: 1 })
     .then(function (data) {
       res
         .status(200)
@@ -54,7 +53,6 @@ export function DisplayListItems(
   next: NextFunction
 ): void {
   MyItem.find({}, { name: 1, title: 1 })
-    .sort({ name: 1 })
     .then(function (data) {
       res.status(200).json({ success: true, msg: "List Found.", data: data });
     })
