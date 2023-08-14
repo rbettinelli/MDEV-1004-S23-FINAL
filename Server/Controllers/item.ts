@@ -108,8 +108,6 @@ export function AddItem(req: Request, res: Response, next: NextFunction): void {
   // For unlimited Array of items.
   try {
     let architects = SanitizeArray(req.body.architects as string);
-    let parsedCost = parseFloat(req.body.cost);
-    let cost = isNaN(parsedCost) ? 0.0 : parsedCost;
 
     // Populates movie with data from API.
     let item = new MyItem({
@@ -120,7 +118,7 @@ export function AddItem(req: Request, res: Response, next: NextFunction): void {
       country: req.body.country,
       description: req.body.description,
       architects: architects,
-      cost: cost,
+      cost: req.body.cost,
       website: req.body.website,
       imageURL: req.body.imageURL,
     });
@@ -163,8 +161,6 @@ export function UpdateItem(
   try {
     let id = req.params.id;
     let architects = SanitizeArray(req.body.architects as string);
-    let parsedCost = parseFloat(req.body.cost);
-    let cost = isNaN(parsedCost) ? 0.0 : parsedCost;
 
     // Populates movie with data from API.
     let itemToUpdate = new MyItem({
@@ -175,7 +171,7 @@ export function UpdateItem(
       country: req.body.country,
       description: req.body.description,
       architects: architects,
-      cost: cost,
+      cost: req.body.cost,
       website: req.body.website,
       imageURL: req.body.imageURL,
     });
